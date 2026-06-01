@@ -1,11 +1,90 @@
+:root {
+  --circus-red: #d62828;
+  --circus-gold: #fcbf49;
+  --circus-blue: #003049;
+  --circus-white: #fff8e1;
+  --text-dark: #3a2e2a;
+
+  --bubble-user: #d62828;
+  --bubble-ai: #fff8e1;
+}
+
 body.container {
   padding-top: 70px;
   padding-bottom: 200px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--circus-red),
+    var(--circus-red) 40px,
+    var(--circus-white) 40px,
+    var(--circus-white) 80px
+  );
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+  color: var(--text-dark);
+  background-attachment: fixed;
 }
-:root {
-  scroll-behavior: auto;
+
+/* 吹き出し */
+.card {
+  background: var(--circus-white);
+  border: 3px solid var(--circus-gold);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  animation: pop 0.25s ease-out;
 }
+
+@keyframes pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 p.card-text {
   white-space: pre-wrap;
   word-break: break-all;
+  font-size: 1rem;
+}
+
+/* ユーザー吹き出し */
+.card.user {
+  background: var(--bubble-user);
+  color: #fff;
+  border-color: #ffdd57;
+}
+
+/* AI吹き出し */
+.card.ai {
+  background: var(--bubble-ai);
+  color: var(--text-dark);
+}
+
+/* ナビバー */
+.navbar {
+  background: linear-gradient(
+    90deg,
+    var(--circus-red),
+    var(--circus-gold),
+    var(--circus-blue)
+  );
+  border-bottom: 4px solid var(--circus-gold);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ボタン */
+.btn-primary {
+  background: var(--circus-gold);
+  border: 2px solid var(--circus-blue);
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: var(--circus-blue);
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--circus-red);
+  color: #fff;
+  transform: translateY(-2px);
 }
